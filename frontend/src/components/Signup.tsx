@@ -1,31 +1,34 @@
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
+
+import { ParticlesBg } from "./ParticleBg"
+import { NeonGradientCard } from "./ui/neon-gradient-card"
+import { Input } from "./ui/input"
 
   
 
 const Signup = () => {
 
     return (
-        <div>
-            <Card>
-                <CardHeader>
-                    <CardTitle>Signup</CardTitle>
-                    <CardDescription>Card Description</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <p>Card Content</p>
-                </CardContent>
-                <CardFooter>
-                    <p>Card Footer</p>
-                </CardFooter>
-            </Card>
+        <div className="relative  h-full w-full">
+            <div className="absolute">
+                <ParticlesBg/>
+            </div>
+            <div className="absolute top-20 left-10">
+                <NeonGradientCard className="">
+                    <div className="flex flex-col gap-5">
+                        <span className="text-white text-center">Signup</span>
+                        <div className="">
+                            <Input type="email" placeholder="Email" />
+                        </div>
+                        <div>
+                            <Input type="email" placeholder="Email" />
+                        </div>
+                    </div>
+                    
+                    
+                </NeonGradientCard>
+            </div>
         </div>
+        
     )
 }
 

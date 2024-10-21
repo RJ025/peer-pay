@@ -13,7 +13,7 @@ interface Item {
 let notifications = [
   {
     name: "Payment received",
-    description: "Magic UI",
+    description: "Rs 20000",
     time: "15m ago",
 
     icon: "💸",
@@ -21,21 +21,21 @@ let notifications = [
   },
   {
     name: "User signed up",
-    description: "Magic UI",
+    description: "",
     time: "10m ago",
     icon: "👤",
     color: "#FFB800",
   },
   {
-    name: "New message",
-    description: "Magic UI",
+    name: "Pament Sent",
+    description: "Rs 100000",
     time: "5m ago",
-    icon: "💬",
+    icon: "💸",
     color: "#FF3D71",
   },
   {
-    name: "New event",
-    description: "Magic UI",
+    name: "Balance Added",
+    description: "",
     time: "2m ago",
     icon: "🗞️",
     color: "#1E86FF",
@@ -89,7 +89,7 @@ export function LandingPageSectionTwo({
   return (
     <div
       className={cn(
-        "relative flex h-[500px] w-full flex-col p-6 overflow-hidden rounded-lg border bg-background bg-opacity-0 md:shadow-xl",
+        "relative flex h-[500px] w-full flex-col p-6 overflow-hidden rounded-lg bg-opacity-0 md:shadow-xl ",
         className,
       )}
     >

@@ -1,12 +1,17 @@
 import { LandingPageSectionTwo } from "./LandingPageSectionTwo"
-import { AnimatedList } from "./ui/animated-list"
+import Navbar from "./Navbar"
 import BlurIn from "./ui/blur-in"
 import FlickeringGrid from "./ui/flickering-grid"
+import WordPullUp from "./ui/word-pull-up"
 
 
 const LandingPage = () => {
     return (
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden w-full h-full">
+            <div className="absolute bg-opacity-0 p-2 right-5">
+                 <Navbar/>
+            </div>
+           
             <div className="bg-stone-900">
                 <FlickeringGrid />
             </div>
@@ -21,11 +26,18 @@ const LandingPage = () => {
                     Connecting Payments, Connecting People
                 </div>
             </div>
-            <div className="absolute top-20 bg-opacity-0 bg-red-500 h-screen w-fit">
-                <LandingPageSectionTwo/>
+            <div className="flex flex-col justify-center items-center">
+                <div className="absolute  top-28  my-96 h-10 w-screen sm:w-fit lg:w-[50%] sm:right-10 lg:right-10">
+                    <LandingPageSectionTwo/>
+                </div>
+                <div className="absolute  top-48 sm:top-96 my-64 text-white sm:left-10 lg:left-96 lg:w-64">
+                    <WordPullUp
+                        className="text-3xl font-bold tracking-[-0.02em] text-white dark:text-white md:text-4xl lg:text-6xl md:leading-[5rem]"
+                        words="Lightening Fast Payments"
+                    />
+                </div>
             </div>
             
-           
         </div>
 
     
