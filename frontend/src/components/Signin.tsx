@@ -4,39 +4,32 @@ import { NeonGradientCard } from "./ui/neon-gradient-card"
 import { Input } from "./ui/input"
 import { RainbowButton } from "./ui/rainbow-button"
 import { useState } from "react"
-import axios, { AxiosError } from "axios"
+import axios from "axios"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
   
 
-const Signup = () => {
-
-    const [firstname , setFirstname] = useState("")
-    const [lastname , setLastname] = useState("")
+const Signin = () => {
     const [email , setEmail] = useState("")
     const [password , setPassword] = useState("")
 
     const handleClick = async() => {
         try {
-            const response = await axios.post(`http://localhost:5000/api/v1/user/signup` , {
+            const response = await axios.post(`http://localhost:5000/api/v1/user/signin` , {
                                             username : email ,
-                                            firstName : firstname,
-                                            lastName : lastname,
                                             password
                                         })
             if (response.status === 200) {
                 console.log(response);
                 const token = response.data.token;
                 localStorage.setItem('token', token);
-                toast.success("Signup successful!");
+                toast.success("Login successful!");
             }
         } catch(err : any) {
             if (err.response && err.response.data && err.response.data.message) {
-                // Display the error message returned from the backend
                 toast.error(err.response.data.message);
             } else {
-                // Generic error message in case the error doesn't have a message from the backend
                 toast.error("Something went wrong. Please try again.");
             }
         }
@@ -45,30 +38,14 @@ const Signup = () => {
 
 
     return (
-        <div className="relative  h-full w-full">
-            <div className="absolute">
+        <div className="relative h-[100vh] w-[100vw] overflow-hidden">
+            <div className="absolute h-full w-full overflow-hidden">
                 <ParticlesBg/>
             </div>
             <div className="absolute top-[20vh] md:top-[] left-[20vw] md:mx-24 lg:mx-96 md:w-96 lg:h-96">
                 <NeonGradientCard className="">
                     <div className="flex flex-col gap-5">
                         <span className="text-white text-center">Signup</span>
-                        <div className="">
-                            <Input 
-                                value={firstname} 
-                                type="text" 
-                                placeholder="Firstname" 
-                                onChange={(e) => setFirstname(e.target.value)} 
-                            />
-                        </div>
-                        <div>
-                            <Input 
-                                type="text" 
-                                placeholder="lastname" 
-                                value={ lastname }
-                                onChange={(e) => setLastname(e.target.value)}
-                            />
-                        </div>
                         <div>
                             <Input 
                                 type="email" 
@@ -87,7 +64,7 @@ const Signup = () => {
                         </div>
                     </div>
                      <RainbowButton className="relative top-4" onClick={() => handleClick()}>
-                        Signup
+                        Login
                     </RainbowButton>
                     <ToastContainer/>
                 </NeonGradientCard>
@@ -98,4 +75,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default Signin

@@ -31,9 +31,10 @@ userRouter.post('/signup' , async (req : Request , res : Response) => {
     })
 
     if(existingUser){
-        return res.status(411).json({
+        res.status(400).json({
             message : "Email already exists"
         })
+        return;
     }
 
     const hashedPassword = await brcypt.hash(password , 10)
